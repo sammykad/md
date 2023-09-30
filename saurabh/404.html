@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>matrix</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+      h2 {
+        z-index: 999;
+        background-color: #ffffff;
+        color: red;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>
+      vibhavari_shinde_patil.98
+      <br />
+    </h2>
+    <canvas id="canvas"> </canvas>
+    <script>
+      var canvas = document.getElementById("canvas"),
+        ctx = canvas.getContext("2d"),
+        fontSize = 20, // Adjust font size as needed
+        columns,
+        drops;
+
+      function setup() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        columns = Math.floor(canvas.width / fontSize);
+        drops = new Array(columns).fill(0);
+      }
+
+      function draw() {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = "#0f0";
+        ctx.font = fontSize + "px Arial";
+
+        for (var i = 0; i < columns; i++) {
+          var letter = String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+          ctx.fillText(letter, i * fontSize, drops[i] * fontSize);
+
+          if (drops[i] * fontSize > canvas.height && Math.random() > 0.95) {
+            drops[i] = 0;
+          }
+
+          drops[i]++;
+        }
+
+        requestAnimationFrame(draw);
+      }
+
+      window.addEventListener("resize", function () {
+        setup();
+      });
+
+      setup();
+      requestAnimationFrame(draw);
+    </script>
+  </body>
+</html>

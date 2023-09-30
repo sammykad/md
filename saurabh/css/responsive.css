@@ -1,0 +1,15 @@
+/* Small devices such as iphones  */
+@media only screen and (max-width: 480px) {
+}
+/* Medium devices such as tablets */
+@media only screen and (max-width: 768px) {
+}
+/* Large devices such as ipad */
+@media only screen and (max-width: 1024px) {
+}
+/* Largest devices such as laptops */
+@media only screen and (max-width: 1366px) {
+}
+/* Largest devices such as desktops */
+@media only screen and (max-width: 1920px) {
+}
